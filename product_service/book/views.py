@@ -14,7 +14,7 @@ def get_books(request):
     for book in data:
         book['author'] = Author.objects.get(pk=ObjectId(book['author'])).name
         book['publisher'] = Publisher.objects.get(pk=ObjectId(book['publisher'])).name
-        book['categories'] = Category.objects.get(pk=ObjectId(book['categories'])).name
+        book['categories'] = list(Category.objects.filter(pk__in=book['categories']).values_list("name", flat=True))
     return Response(serializer.data)
 
 
