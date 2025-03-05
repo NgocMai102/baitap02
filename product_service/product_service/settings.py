@@ -77,21 +77,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': False,
+        'NAME': MONGO_DB_NAME,
         'CLIENT': {
             'host': MONGODB_URI,
-            'name': MONGO_DB_NAME,
-            'authMechanism': 'SCRAM-SHA-1',
         }
     },
-    'mongodb': {
-        'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': MONGODB_URI,
-            'name': MONGO_DB_NAME,
-            'authMechanism': 'SCRAM-SHA-1',
-        }
-    }
 }
 
 # Password validation
